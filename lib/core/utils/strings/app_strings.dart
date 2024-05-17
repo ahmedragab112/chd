@@ -1,6 +1,7 @@
 class AppStrings {
-  static const String firstName = 'firstName';
-  static const String lastName = 'lastName';
+  static const String identity = 'Identity';
+  static const String firstName = 'First name';
+  static const String lastName = 'Last name';
   static const String description = "Description";
   static const String productDetails = "Product Details";
   static const String popularProducts = 'Popular Products';

@@ -12,13 +12,14 @@ class LoginCubit extends Cubit<LoginState> {
   var formKey = GlobalKey<FormState>();
 
   final TextEditingController phoneController = TextEditingController();
-  bool identity = false;
+  final TextEditingController identityController = TextEditingController();
+
   Future<void> login() async {
     emit(const LoginState.loading());
     final result = await loginUseCase.login(
       loginData: LoginRequestBody(
         dialCode: "20",
-        identity: identity ? 'man' : 'woamn',
+        identity: identityController.text,
         phone: phoneController.text,
       ),
     );

@@ -12,6 +12,8 @@ class SingupCubit extends Cubit<SingupState> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController identityController = TextEditingController();
+
   Future<void> signUp() async {
     emit(const SingupState.loading());
     final result = await signUpUseCase.singupUser(
@@ -19,7 +21,7 @@ class SingupCubit extends Cubit<SingupState> {
           dialCode: '20',
           firstName: firstNameController.text,
           lastName: lastNameController.text,
-          identity: 'man',
+          identity: identityController.text,
           phone: phoneController.text,
           type: "individual"),
     );

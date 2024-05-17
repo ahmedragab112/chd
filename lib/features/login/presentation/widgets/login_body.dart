@@ -13,6 +13,7 @@ import 'package:chdtask/features/login/presentation/widgets/custom_egypt_flag.da
 import 'package:chdtask/features/login/presentation/widgets/custom_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -45,6 +46,24 @@ class LoginBody extends StatelessWidget {
                 }
                 return null;
               },
+            ),
+          ),
+          const VerticalSpace(31),
+          FadeInRight(
+            duration: const Duration(milliseconds: 1000),
+            child: CustomTextFiled(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return AppStrings.thisFiledIsRequired;
+                }
+                return null;
+              },
+              controller: bloc.identityController,
+              hintText: AppStrings.identity,
+              prefixIcon: Icon(
+                FontAwesomeIcons.idCard,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ),
           const VerticalSpace(52),

@@ -7,6 +7,7 @@ import 'package:chdtask/features/login/presentation/widgets/custom_egypt_flag.da
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpModual extends StatelessWidget {
   const SignUpModual({
@@ -48,6 +49,24 @@ class SignUpModual extends StatelessWidget {
                 }
                 return null;
               },
+              controller: bloc.identityController,
+              hintText: AppStrings.identity,
+              prefixIcon: Icon(
+                FontAwesomeIcons.idCard,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+          ),
+          const VerticalSpace(31),
+          FadeInRight(
+            duration: const Duration(milliseconds: 1000),
+            child: CustomTextFiled(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return AppStrings.thisFiledIsRequired;
+                }
+                return null;
+              },
               controller: bloc.lastNameController,
               hintText: AppStrings.lastName,
               prefixIcon: Icon(
@@ -57,12 +76,13 @@ class SignUpModual extends StatelessWidget {
             ),
           ),
           const VerticalSpace(31),
-          FadeInRight(
+          FadeInLeft(
             duration: const Duration(milliseconds: 1000),
             child: CustomTextFiled(
                 validator: (phoneNumber) {
-                  if (phoneNumber!.isEmpty || !AppRegex.hasMatchPhoneNumber(phoneNumber)) {
-                  return  AppStrings.enterOnlyEgyptionNumber;
+                  if (phoneNumber!.isEmpty ||
+                      !AppRegex.hasMatchPhoneNumber(phoneNumber)) {
+                    return AppStrings.enterOnlyEgyptionNumber;
                   }
                   return null;
                 },

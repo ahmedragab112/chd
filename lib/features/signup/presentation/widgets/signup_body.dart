@@ -4,7 +4,6 @@ import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/spaceing/spaceing.dart';
 import 'package:chdtask/core/utils/strings/app_strings.dart';
-import 'package:chdtask/core/utils/styles/app_textstyle.dart';
 import 'package:chdtask/core/utils/widget/custom_richtext.dart';
 import 'package:chdtask/core/utils/widget/title_text.dart';
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
@@ -34,16 +33,6 @@ class SignUpBody extends StatelessWidget {
         ElasticIn(
             duration: const Duration(milliseconds: 1000),
             child: const CustomSignUpButton()),
-        const VerticalSpace(20),
-        FadeInUp(
-          duration: const Duration(milliseconds: 1000),
-          child: Text(
-            AppStrings.orContinueWith,
-            style: AppTextStyle.font12RegularPrimery
-                .copyWith(color: AppColor.greyColor),
-            textAlign: TextAlign.center,
-          ),
-        ),
         const VerticalSpace(20),
         const Divider(
           color: AppColor.greyColor,
