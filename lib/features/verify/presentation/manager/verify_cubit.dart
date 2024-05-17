@@ -28,10 +28,10 @@ class VerifyCubit extends Cubit<VerifyState> {
     ));
     result.when(
         data: (data) async {
-          emit(VerifyState.success(verifyEntity: data));
           await locator<CacheHelper>().setInstance(
               data: "${data.tokenType} ${data.accessToken}",
               key: AppStrings.cacheKeyUserToken);
+          emit(VerifyState.success(verifyEntity: data));
         },
         error: (error) =>
             emit(VerifyState.failure(error: error.apiErrorModel.message!)));

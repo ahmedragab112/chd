@@ -3,6 +3,7 @@ import 'package:chdtask/core/model/login_model.dart';
 import 'package:chdtask/features/home/data/models/product_data_model.dart';
 import 'package:chdtask/features/login/data/models/login_request_body.dart';
 import 'package:chdtask/features/signup/data/models/signup_body.dart';
+import 'package:chdtask/features/user/data/models/profile_data_model.dart';
 import 'package:chdtask/features/verify/data/models/verify_body.dart';
 import 'package:chdtask/features/verify/data/models/verify_data_model.dart';
 import 'package:dio/dio.dart';
@@ -22,7 +23,11 @@ abstract class ApiManager {
   @POST(EndPoint.verifyCodeEndPoint)
   Future<VerifyDataModel> verify(@Body() VerifyBody verifyCodeBody);
   @GET(EndPoint.homeEndPoint)
- Future<ProductDataModel> getProduct(
+  Future<ProductDataModel> getProduct(
+      {@Header('Authorization') required String token,
+      @Header('X-DID') required String xDid});
+  @GET(EndPoint.profile)
+  Future<ProfileDataModel> userProfile(
       {@Header('Authorization') required String token,
       @Header('X-DID') required String xDid});
 }

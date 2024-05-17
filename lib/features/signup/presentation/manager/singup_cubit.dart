@@ -30,9 +30,9 @@ class SingupCubit extends Cubit<SingupState> {
     );
     result.when(
       data: (data) async {
-        emit(SingupState.success(signupEntity: data));
         await locator<CacheHelper>().setInstance(
             data: identityController.text, key: AppStrings.deviceIdentityKey);
+        emit(SingupState.success(signupEntity: data));
       },
       error: (error) =>
           emit(SingupState.failure(error: error.apiErrorModel.message!)),
