@@ -28,7 +28,6 @@ class ResponseCode {
   static const int notFound = 404;
   static const int apiLogicError = 422;
 
-  // local status code
   static const int connectTimeout = -1;
   static const int cancel = -2;
   static const int receiveTimeout = -3;

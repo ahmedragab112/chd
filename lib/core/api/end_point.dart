@@ -1,7 +1,7 @@
 class EndPoint {
   static const String signUpEndPoint = 'auth/register';
   static const String loginEndPoint = 'auth/login';
-  static const String verifyRestCodeEndPoint = 'auth/verify';
+  static const String verifyCodeEndPoint = 'auth/verify';
   static const String homeEndPoint = 'products';
 }
 
