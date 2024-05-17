@@ -40,24 +40,6 @@ class SignUpModual extends StatelessWidget {
             ),
           ),
           const VerticalSpace(31),
-          FadeInLeft(
-            duration: const Duration(milliseconds: 1000),
-            child: CustomTextFiled(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return AppStrings.thisFiledIsRequired;
-                }
-                return null;
-              },
-              controller: bloc.identityController,
-              hintText: AppStrings.identity,
-              prefixIcon: Icon(
-                FontAwesomeIcons.idCard,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ),
-          const VerticalSpace(31),
           FadeInRight(
             duration: const Duration(milliseconds: 1000),
             child: CustomTextFiled(
@@ -71,6 +53,24 @@ class SignUpModual extends StatelessWidget {
               hintText: AppStrings.lastName,
               prefixIcon: Icon(
                 Icons.person,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+          ),
+          const VerticalSpace(31),
+          FadeInLeft(
+            duration: const Duration(milliseconds: 1000),
+            child: CustomTextFiled(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return AppStrings.thisFiledIsRequired;
+                }
+                return null;
+              },
+              controller: bloc.identityController,
+              hintText: AppStrings.identity,
+              prefixIcon: Icon(
+                FontAwesomeIcons.idCard,
                 color: Theme.of(context).primaryColor,
               ),
             ),
