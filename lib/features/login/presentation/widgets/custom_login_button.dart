@@ -38,7 +38,7 @@ class CustomLoginButton extends StatelessWidget {
                     title: 'Success Login with OTP',
                     description: 'OTP: ${data.otp}');
 
-                context.pushNamed(AppRoutes.verify);
+                context.pushReplacementNamed(AppRoutes.verify);
               },
               failure: (error) =>
                   errorToast(context, title: 'Error', description: error),

@@ -3,7 +3,7 @@ import 'package:chdtask/features/user/domain/usecases/profile_usecase.dart';
 import 'package:chdtask/features/user/presentation/manager/profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
-  ProfileUseCase profileUseCase;
+ final ProfileUseCase profileUseCase;
   ProfileCubit({required this.profileUseCase})
       : super(const ProfileState.initial());
 

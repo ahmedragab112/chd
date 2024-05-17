@@ -1,5 +1,7 @@
 import 'package:chdtask/config/router/app_routes.dart';
 import 'package:chdtask/core/di/di.dart';
+import 'package:chdtask/features/home/presentation/manager/homecubit_cubit.dart';
+import 'package:chdtask/features/home/presentation/pages/home.dart';
 import 'package:chdtask/features/login/presentation/manager/login_cubit.dart';
 import 'package:chdtask/features/login/presentation/pages/login.dart';
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
@@ -22,21 +24,30 @@ class AppRouter {
           ),
         );
 
-         case AppRoutes.signUp:
+      case AppRoutes.signUp:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => locator<SingupCubit>(),
             child: const SignUp(),
           ),
         );
-        
-         case AppRoutes.verify:
+
+      case AppRoutes.verify:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => locator<VerifyCubit>(),
             child: const Verify(),
           ),
         );
+
+      case AppRoutes.home:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => locator<HomeCubit>()..getProduct(),
+            child: const Home(),
+          ),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

@@ -1,6 +1,10 @@
 import 'package:chdtask/core/api/api_manger.dart';
 import 'package:chdtask/core/api/dio_singleton.dart';
 import 'package:chdtask/core/cache/cache_helper.dart';
+import 'package:chdtask/features/home/data/datasources/product_datasource_implementation.dart';
+import 'package:chdtask/features/home/data/repositories/home_data_repo.dart';
+import 'package:chdtask/features/home/domain/usecases/home_usecase.dart';
+import 'package:chdtask/features/home/presentation/manager/homecubit_cubit.dart';
 import 'package:chdtask/features/login/data/datasources/login_remote_implementation.dart';
 import 'package:chdtask/features/login/data/repositories/login_data_repo.dart';
 import 'package:chdtask/features/login/domain/usecases/login_usecase.dart';
@@ -62,5 +66,20 @@ void setupLocator() {
 
   locator.registerFactory(() => VerifyCubit(
         verifyUseCase: locator<VerifyUseCase>(),
+      ));
+
+        locator.registerLazySingleton(() => HomeDataSourceImplementation(
+     apiManager:   ApiManager(DioFactory.getDio())));
+
+  locator.registerLazySingleton(() => HomeDataRepo(
+        dataSource: locator<HomeDataSourceImplementation>(),
+      ));
+
+  locator.registerLazySingleton(() => HomeUseCase(
+        homeDomainRepo: locator<HomeDataRepo>(),
+      ));
+
+  locator.registerFactory(() => HomeCubit(
+        homeUseCase: locator<HomeUseCase>(),
       ));
 }

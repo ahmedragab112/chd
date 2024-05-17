@@ -1,3 +1,5 @@
+import 'package:chdtask/config/router/app_routes.dart';
+import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/function/tosta.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/strings/app_strings.dart';
@@ -35,6 +37,7 @@ class VerifyButton extends StatelessWidget {
                 successToast(context,
                     title: 'Success Verify with OTP',
                     description: 'OTP: ${data.message}');
+                context.pushReplacementNamed(AppRoutes.home);
               },
               failure: (error) {
                 errorToast(context, title: 'Error', description: error);
