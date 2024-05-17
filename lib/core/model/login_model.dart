@@ -1,13 +1,12 @@
-import 'package:chdtask/features/login/domain/entities/login_entity.dart';
+import 'package:chdtask/core/entities/login_entity.dart';
 
-class LoginModel extends LoginEntity{
+class OtpDataModel extends OtpEntity {
   String? message;
   int? status;
-  
 
-  LoginModel({this.message, this.status, super.otp});
+  OtpDataModel({this.message, this.status, super.otp});
 
-  LoginModel.fromJson(Map<String, dynamic> json) {
+  OtpDataModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     status = json['status'];
     otp = json['otp'];

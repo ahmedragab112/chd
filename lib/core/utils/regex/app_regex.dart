@@ -31,6 +31,6 @@ class AppRegex {
   }
 
   static bool hasMatchPhoneNumber(String phoneNumber) {
-    return RegExp(r'^(02\d{7}|01\d{9})$').hasMatch(phoneNumber);
+  return RegExp(r'^1\d{9}$').hasMatch(phoneNumber);
   }
 }

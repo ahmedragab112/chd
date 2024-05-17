@@ -2,7 +2,7 @@ import 'package:chdtask/core/api/api_response.dart';
 import 'package:chdtask/core/error/error_handler.dart';
 import 'package:chdtask/features/login/data/datasources/login_remote_datasource.dart';
 import 'package:chdtask/features/login/data/models/login_request_body.dart';
-import 'package:chdtask/features/login/domain/entities/login_entity.dart';
+import 'package:chdtask/core/entities/login_entity.dart';
 import 'package:chdtask/features/login/domain/repositories/login_domain.dart';
 
 class LoginDataRepo implements LoginDomainRepo {
@@ -10,7 +10,7 @@ class LoginDataRepo implements LoginDomainRepo {
 
   LoginDataRepo({required this.loginRemoteDataSouce});
   @override
-  Future<ApiResponse<LoginEntity>> login(
+  Future<ApiResponse<OtpEntity>> login(
       {required LoginRequestBody loginData}) async {
     try {
       var data = await loginRemoteDataSouce.login(loginData: loginData);

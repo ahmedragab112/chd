@@ -23,7 +23,7 @@ class AppStrings {
   static const String byClickingThe = "By clicking the ";
   static const String email = "Email";
   static const String pleaseEnterValidName = "Please Enter Valid Name";
-  static const String styLish = "Stylish";
+  static const String chd = "Chd";
   static const String name = "Name";
   static const String confirmPassword = "Confirm Password";
   static const String phone = "Phone";
@@ -36,7 +36,8 @@ class AppStrings {
   static const String enterAtLeastOneSpecialCharacter =
       "Enter At Least One Special Character";
   static const String pleaseEnterValidEmail = "Please Enter Valid Email";
-  static const String pleaseEnterValidPhone = "Please Enter Valid Phone In Egypt";
+  static const String pleaseEnterValidPhone =
+      "Please Enter Valid Phone In Egypt";
   static const String pleaseEnterValidPassword = "Please Enter Valid Password";
   static const String signup = "Sign Up ";
   static const String logOut = ' Log Out ';

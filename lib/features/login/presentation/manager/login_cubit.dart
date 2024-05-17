@@ -12,23 +12,19 @@ class LoginCubit extends Cubit<LoginState> {
   var formKey = GlobalKey<FormState>();
 
   final TextEditingController phoneController = TextEditingController();
-bool identity = false;
+  bool identity = false;
   Future<void> login() async {
     emit(const LoginState.loading());
-    final result = await loginUseCase.login(loginData: LoginRequestBody(
-      dialCode: "20", 
-      identity: identity?'man':'woamn' , 
-      phone: phoneController.text, 
-    ),);
+    final result = await loginUseCase.login(
+      loginData: LoginRequestBody(
+        dialCode: "20",
+        identity: identity ? 'man' : 'woamn',
+        phone: phoneController.text,
+      ),
+    );
     result.when(
-        data: (data) => emit(const LoginState.success()),
+        data: (data) => emit(LoginState.success(loginEntity: data)),
         error: (error) =>
             emit(LoginState.failure(error: error.apiErrorModel.message!)));
-  }
-
-  void changeObscureText() {
-    emit(const LoginState.initial());
-    isobscureText = !isobscureText;
-    emit(const LoginState.changeObsuerText());
   }
 }

@@ -5,15 +5,14 @@ import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/regex/app_regex.dart';
 import 'package:chdtask/core/utils/spaceing/spaceing.dart';
 import 'package:chdtask/core/utils/strings/app_strings.dart';
-import 'package:chdtask/core/utils/styles/app_textstyle.dart';
-import 'package:chdtask/core/utils/widget/custom_button.dart';
 import 'package:chdtask/core/utils/widget/custom_richtext.dart';
 import 'package:chdtask/core/utils/widget/custom_textfiled.dart';
 import 'package:chdtask/core/utils/widget/title_text.dart';
 import 'package:chdtask/features/login/presentation/manager/login_cubit.dart';
+import 'package:chdtask/features/login/presentation/widgets/custom_egypt_flag.dart';
+import 'package:chdtask/features/login/presentation/widgets/custom_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -39,11 +38,7 @@ class LoginBody extends StatelessWidget {
             child: CustomTextFiled(
               controller: bloc.phoneController,
               hintText: AppStrings.phone,
-              prefixIcon: Image.asset(
-                'assets/images/egyptflag.png',
-                width: 30.w,
-                height: 30.h,
-              ),
+              prefixIcon: const CustomEgyptFlage(),
               validator: (value) {
                 if (value!.isEmpty || !AppRegex.hasMatchPhoneNumber(value)) {
                   return AppStrings.pleaseEnterValidPhone;
@@ -52,43 +47,16 @@ class LoginBody extends StatelessWidget {
               },
             ),
           ),
-          const VerticalSpace(31),
-          GestureDetector(
-            onTap: () {
-              context.pushNamed(AppRoutes.forgotPassword);
-            },
-            child: Text(
-              AppStrings.forgotPassword,
-              textAlign: TextAlign.end,
-              style: AppTextStyle.font12RegularPrimery,
-            ),
-          ),
           const VerticalSpace(52),
           BounceInUp(
-            delay: const Duration(milliseconds: 1000),
-            child: CustomButton(
-              text: AppStrings.login,
-              onTap: () async {
-                if (bloc.formKey.currentState!.validate()) {
-                  await bloc.login();
-                }
-              },
+              delay: const Duration(milliseconds: 1000),
+              child: const CustomLoginButton()),
+          const VerticalSpace(50),
+          BounceInUp(
+            child: const Divider(
+              color: AppColor.greyColor,
+              thickness: .5,
             ),
-          ),
-          const VerticalSpace(75),
-          FadeInUp(
-            from: 200,
-            child: Text(
-              AppStrings.orContinueWith,
-              style: AppTextStyle.font12RegularPrimery
-                  .copyWith(color: AppColor.greyColor),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const VerticalSpace(20),
-          const Divider(
-            color: AppColor.greyColor,
-            thickness: .2,
           ),
           const VerticalSpace(20),
           BounceInRight(

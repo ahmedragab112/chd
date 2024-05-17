@@ -9,13 +9,13 @@ part of 'login_request_body.dart';
 LoginRequestBody _$LoginRequestBodyFromJson(Map<String, dynamic> json) =>
     LoginRequestBody(
       phone: json['phone'] as String?,
-      dialCode: json['dialCode'] as String?,
+      dialCode: json['dial_code'] as String?,
       identity: json['identity'] as String?,
     );
 
 Map<String, dynamic> _$LoginRequestBodyToJson(LoginRequestBody instance) =>
     <String, dynamic>{
       'phone': instance.phone,
-      'dialCode': instance.dialCode,
+      'dial_code': instance.dialCode,
       'identity': instance.identity,
     };

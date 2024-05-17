@@ -21,14 +21,14 @@ class _ApiManager implements ApiManager {
   String? baseUrl;
 
   @override
-  Future<LoginModel> login(LoginRequestBody loginRequestBody) async {
+  Future<OtpDataModel> login(LoginRequestBody loginRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(loginRequestBody.toJson());
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<LoginModel>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<OtpDataModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -44,7 +44,35 @@ class _ApiManager implements ApiManager {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = LoginModel.fromJson(_result.data!);
+    final value = OtpDataModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<OtpDataModel> signUp(SingUpBody singUpBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(singUpBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<OtpDataModel>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/register',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = OtpDataModel.fromJson(_result.data!);
     return value;
   }
 

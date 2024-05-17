@@ -4,6 +4,7 @@ part 'login_request_body.g.dart';
 @JsonSerializable()
 class LoginRequestBody {
   String? phone;
+  @JsonKey(name: 'dial_code')
   String? dialCode;
   String? identity;
 
