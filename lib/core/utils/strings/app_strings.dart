@@ -1,4 +1,6 @@
 class AppStrings {
+  static const String firstName = 'firstName';
+  static const String lastName = 'lastName';
   static const String description = "Description";
   static const String productDetails = "Product Details";
   static const String popularProducts = 'Popular Products';
@@ -27,7 +29,7 @@ class AppStrings {
   static const String name = "Name";
   static const String confirmPassword = "Confirm Password";
   static const String phone = "Phone";
-  static const String enterOnlyEgyptionNumber = "Enter Only Egyptian Number";
+  static const String enterOnlyEgyptionNumber = "Enter Only Egyptian Number Start with 1";
   static const String enterUpperAtLeastOneUpperCase =
       " Enter Upper At Least One Upper Case";
   static const String enterLowerAtLeastOneLowerCase =
@@ -35,7 +37,7 @@ class AppStrings {
   static const String enterAtLeastOneNumber = "Enter At Least One Number";
   static const String enterAtLeastOneSpecialCharacter =
       "Enter At Least One Special Character";
-  static const String pleaseEnterValidEmail = "Please Enter Valid Email";
+  static const String thisFiledIsRequired = "This Filed Is Required";
   static const String pleaseEnterValidPhone =
       "Please Enter Valid Phone In Egypt";
   static const String pleaseEnterValidPassword = "Please Enter Valid Password";

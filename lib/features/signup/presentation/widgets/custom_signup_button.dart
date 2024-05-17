@@ -2,22 +2,22 @@ import 'package:chdtask/core/function/tosta.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/strings/app_strings.dart';
 import 'package:chdtask/core/utils/styles/app_textstyle.dart';
-import 'package:chdtask/features/login/presentation/manager/login_cubit.dart';
-import 'package:chdtask/features/login/presentation/manager/login_state.dart';
+import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
+import 'package:chdtask/features/signup/presentation/manager/singup_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomLoginButton extends StatelessWidget {
-  const CustomLoginButton({super.key});
+class CustomSignUpButton extends StatelessWidget {
+  const CustomSignUpButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<LoginCubit>();
+    var cubit = context.read<SingupCubit>();
     return InkWell(
       onTap: () async {
         if (cubit.formKey.currentState!.validate()) {
-         await cubit.login();
+          await cubit.signUp();
         }
       },
       child: Container(
@@ -28,29 +28,36 @@ class CustomLoginButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(4.r),
           color: AppColor.primeryColor,
         ),
-        child: BlocConsumer<LoginCubit, LoginState>(
+        child: BlocConsumer<SingupCubit, SingupState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: (data) => successToast(context,
-                    title: 'Success Login with OTP',
-                    description: 'OTP: ${data.otp}'),
-              
-              failure: (error) => errorToast(context, title: 'Error', description: error),
+              success: (data) {
+                successToast(context,
+                    title: 'Success Signup with OTP',
+                    description: 'OTP: ${data.otp}');
+              },
+            
+            failure: (error) {
+              errorToast(context, title: 'Error', description: error);
+            },
             );
 
+
           },
-          builder: (context, state) => state.maybeWhen(
+          builder: (context, state) {
+            return state.maybeWhen(
                   loading: () => const Center(
                     child: CircularProgressIndicator(
                       color: Colors.white,
                     ),
                   ),
                   orElse: () => Text(
-                    AppStrings.login,
+                    AppStrings.signup,
                     style: AppTextStyle.font20SemiBoldWhite,
                   ),
                 ) ??
-                const SizedBox(),
+                const SizedBox();
+          },
         ),
       ),
     );

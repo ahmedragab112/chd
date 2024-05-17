@@ -15,5 +15,5 @@ abstract class ApiManager {
   @POST(EndPoint.loginEndPoint)
   Future<OtpDataModel> login(@Body() LoginRequestBody loginRequestBody);
   @POST(EndPoint.signUpEndPoint)
-  Future<OtpDataModel> signUp(@Body()SingUpBody singUpBody );
+  Future<OtpDataModel> signUp(@Body() SingUpBody singUpBody);
 }
