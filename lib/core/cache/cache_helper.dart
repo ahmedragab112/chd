@@ -18,7 +18,7 @@ class CacheHelper {
     }
   }
 
-   Future<void> init() async {
+  Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }
 
@@ -56,5 +56,9 @@ class CacheHelper {
 
   Future<bool> remove(String key) async {
     return await _prefs!.remove(key);
+  }
+
+  Future<bool> clear() async {
+    return await _prefs!.clear();
   }
 }

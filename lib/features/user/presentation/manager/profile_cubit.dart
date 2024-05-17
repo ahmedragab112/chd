@@ -3,11 +3,11 @@ import 'package:chdtask/features/user/domain/usecases/profile_usecase.dart';
 import 'package:chdtask/features/user/presentation/manager/profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
- final ProfileUseCase profileUseCase;
+  final ProfileUseCase profileUseCase;
   ProfileCubit({required this.profileUseCase})
       : super(const ProfileState.initial());
 
-  void getProfile() async {
+  Future<void> getProfile() async {
     emit(const ProfileState.loading());
     var data = await profileUseCase.getProfile();
     data.when(

@@ -6,6 +6,8 @@ import 'package:chdtask/features/login/presentation/manager/login_cubit.dart';
 import 'package:chdtask/features/login/presentation/pages/login.dart';
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
 import 'package:chdtask/features/signup/presentation/pages/signup.dart';
+import 'package:chdtask/features/user/presentation/manager/profile_cubit.dart';
+import 'package:chdtask/features/user/presentation/pages/user_profile.dart';
 import 'package:chdtask/features/verify/presentation/manager/verify_cubit.dart';
 import 'package:chdtask/features/verify/presentation/pages/verify.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +47,13 @@ class AppRouter {
           builder: (context) => BlocProvider(
             create: (context) => locator<HomeCubit>()..getProduct(),
             child: const Home(),
+          ),
+        );
+  case AppRoutes.profile:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => locator<ProfileCubit>()..getProfile(),
+            child: const Profile(),
           ),
         );
 

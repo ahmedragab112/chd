@@ -13,6 +13,10 @@ import 'package:chdtask/features/signup/data/datasources/signup_datasoucre_imple
 import 'package:chdtask/features/signup/data/repositories/signup_data_repo.dart';
 import 'package:chdtask/features/signup/domain/usecases/signup_usecase.dart';
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
+import 'package:chdtask/features/user/data/datasources/profile_datasource_implementation.dart';
+import 'package:chdtask/features/user/data/repositories/profile_datarepo.dart';
+import 'package:chdtask/features/user/domain/usecases/profile_usecase.dart';
+import 'package:chdtask/features/user/presentation/manager/profile_cubit.dart';
 import 'package:chdtask/features/verify/data/datasources/verify_datasoucre_implementation.dart';
 import 'package:chdtask/features/verify/data/repositories/verify_data_repo.dart';
 import 'package:chdtask/features/verify/domain/usecases/verify_usecase.dart';
@@ -81,5 +85,19 @@ void setupLocator() {
 
   locator.registerFactory(() => HomeCubit(
         homeUseCase: locator<HomeUseCase>(),
+      ));
+           locator.registerLazySingleton(() => ProfileDataSourceImplementation(
+     apiManager:   ApiManager(DioFactory.getDio())));
+
+  locator.registerLazySingleton(() => ProfileDataRepo(
+        profileDataSource: locator<ProfileDataSourceImplementation>(),
+      ));
+
+  locator.registerLazySingleton(() => ProfileUseCase(
+        profileDomainRepo: locator<ProfileDataRepo>(),
+      ));
+
+  locator.registerFactory(() => ProfileCubit(
+        profileUseCase: locator<ProfileUseCase>(),
       ));
 }
