@@ -1,4 +1,3 @@
-import 'package:chdtask/features/home/domain/entities/product_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'homecubit_state.freezed.dart';
 

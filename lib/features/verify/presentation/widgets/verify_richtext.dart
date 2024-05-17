@@ -16,6 +16,9 @@ class VerifyRichText extends StatelessWidget {
             style: AppTextStyle.font12RegularPrimery.copyWith(
               color: AppColor.greyColor,
             )),
+        const TextSpan(
+          text: "  ",
+        ),
       ]),
     );
   }

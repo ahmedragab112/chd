@@ -1,6 +1,5 @@
 import 'package:chdtask/core/utils/styles/app_textstyle.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TitileText extends StatelessWidget {
   const TitileText({
@@ -12,7 +11,7 @@ class TitileText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200.w,
+      width: double.infinity,
       child: Text(
         text,
         style: AppTextStyle.font36BoldBlack,

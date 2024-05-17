@@ -1,6 +1,6 @@
 class AppStrings {
-  static const String verify='Verify';
-  static const String optCode ='Opt Code';
+  static const String verify = 'Verify';
+  static const String optCode = 'Opt Code';
   static const String deviceIdentityKey = 'Device Identity';
   static const String identity = 'Identity';
   static const String firstName = 'First name';
@@ -33,7 +33,8 @@ class AppStrings {
   static const String name = "Name";
   static const String confirmPassword = "Confirm Password";
   static const String phone = "Phone";
-  static const String enterOnlyEgyptionNumber = "Enter Only Egyptian Number Start with 1";
+  static const String enterOnlyEgyptionNumber =
+      "Enter Only Egyptian Number Start with 1";
   static const String enterUpperAtLeastOneUpperCase =
       " Enter Upper At Least One Upper Case";
   static const String enterLowerAtLeastOneLowerCase =
@@ -66,7 +67,7 @@ class AppStrings {
   static const String getYourOrder = "Get Your Order";
   static const String welcomeBack = "Welcome\nBack !";
   static const String creatAccount = "Create An Account";
-  static const String forgotPassword = "Forgot Password?";
+  static const String verifyRestCode = "Verify Your Account";
   static const String login = "Login";
   static const String createAccount = "Create Account";
   static const String submit = "Submit";
@@ -78,5 +79,5 @@ class AppStrings {
   static const String userNameOrEmail = "Username or Email";
   static const String password = "Password";
   static const String cacheKeyIsLogin = 'Logiended';
-    static const String theCodeWeSend ='Add The Otp Code';
+  static const String theCodeWeSend = 'Add The Otp Code';
 }
