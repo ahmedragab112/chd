@@ -1,4 +1,7 @@
 class AppStrings {
+  static const String verify='Verify';
+  static const String optCode ='Opt Code';
+  static const String deviceIdentityKey = 'Device Identity';
   static const String identity = 'Identity';
   static const String firstName = 'First name';
   static const String lastName = 'Last name';
@@ -75,4 +78,5 @@ class AppStrings {
   static const String userNameOrEmail = "Username or Email";
   static const String password = "Password";
   static const String cacheKeyIsLogin = 'Logiended';
+    static const String theCodeWeSend ='Add The Otp Code';
 }

@@ -1,3 +1,5 @@
+import 'package:chdtask/config/router/app_routes.dart';
+import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/function/tosta.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/strings/app_strings.dart';
@@ -17,7 +19,7 @@ class CustomLoginButton extends StatelessWidget {
     return InkWell(
       onTap: () async {
         if (cubit.formKey.currentState!.validate()) {
-         await cubit.login();
+          await cubit.login();
         }
       },
       child: Container(
@@ -31,26 +33,30 @@ class CustomLoginButton extends StatelessWidget {
         child: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: (data) => successToast(context,
+              success: (data) {
+                successToast(context,
                     title: 'Success Login with OTP',
-                    description: 'OTP: ${data.otp}'),
-              
-              failure: (error) => errorToast(context, title: 'Error', description: error),
-            );
+                    description: 'OTP: ${data.otp}');
 
+                context.pushNamed(AppRoutes.verify);
+              },
+              failure: (error) =>
+                  errorToast(context, title: 'Error', description: error),
+            );
           },
-          builder: (context, state) => state.maybeWhen(
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
+          builder: (context, state) =>
+              state.maybeWhen(
+                loading: () => const Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
                   ),
-                  orElse: () => Text(
-                    AppStrings.login,
-                    style: AppTextStyle.font20SemiBoldWhite,
-                  ),
-                ) ??
-                const SizedBox(),
+                ),
+                orElse: () => Text(
+                  AppStrings.login,
+                  style: AppTextStyle.font20SemiBoldWhite,
+                ),
+              ) ??
+              const SizedBox(),
         ),
       ),
     );

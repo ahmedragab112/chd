@@ -1,4 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:chdtask/core/cache/cache_helper.dart';
+import 'package:chdtask/core/di/di.dart';
+import 'package:chdtask/core/utils/strings/app_strings.dart';
 import 'package:chdtask/features/login/data/models/login_request_body.dart';
 import 'package:chdtask/features/login/domain/usecases/login_usecase.dart';
 import 'package:chdtask/features/login/presentation/manager/login_state.dart';
@@ -24,7 +27,11 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     result.when(
-        data: (data) => emit(LoginState.success(loginEntity: data)),
+        data: (data) async{
+          emit(LoginState.success(loginEntity: data));
+         await locator<CacheHelper>().setInstance(
+              data: identityController.text, key: AppStrings.deviceIdentityKey);
+        },
         error: (error) =>
             emit(LoginState.failure(error: error.apiErrorModel.message!)));
   }

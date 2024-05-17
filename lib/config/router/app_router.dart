@@ -4,6 +4,8 @@ import 'package:chdtask/features/login/presentation/manager/login_cubit.dart';
 import 'package:chdtask/features/login/presentation/pages/login.dart';
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
 import 'package:chdtask/features/signup/presentation/pages/signup.dart';
+import 'package:chdtask/features/verify/presentation/manager/verify_cubit.dart';
+import 'package:chdtask/features/verify/presentation/pages/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,6 +27,14 @@ class AppRouter {
           builder: (context) => BlocProvider(
             create: (context) => locator<SingupCubit>(),
             child: const SignUp(),
+          ),
+        );
+        
+         case AppRoutes.verify:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => locator<VerifyCubit>(),
+            child: const Verify(),
           ),
         );
       default:

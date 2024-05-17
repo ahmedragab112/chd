@@ -9,6 +9,10 @@ import 'package:chdtask/features/signup/data/datasources/signup_datasoucre_imple
 import 'package:chdtask/features/signup/data/repositories/signup_data_repo.dart';
 import 'package:chdtask/features/signup/domain/usecases/signup_usecase.dart';
 import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
+import 'package:chdtask/features/verify/data/datasources/verify_datasoucre_implementation.dart';
+import 'package:chdtask/features/verify/data/repositories/verify_data_repo.dart';
+import 'package:chdtask/features/verify/domain/usecases/verify_usecase.dart';
+import 'package:chdtask/features/verify/presentation/manager/verify_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt locator = GetIt.instance;
@@ -44,5 +48,19 @@ void setupLocator() {
 
   locator.registerFactory(() => SingupCubit(
         signUpUseCase: locator<SignUpUseCase>(),
+      ));
+      locator.registerLazySingleton(() => VerifyDatasourceImplementation(
+      apiManager: ApiManager(DioFactory.getDio())));
+
+  locator.registerLazySingleton(() => VerifyDataRepo(
+        dataSource: locator<VerifyDatasourceImplementation>(),
+      ));
+
+  locator.registerLazySingleton(() => VerifyUseCase(
+        verifyDomainRepo: locator<VerifyDataRepo>(),
+      ));
+
+  locator.registerFactory(() => VerifyCubit(
+        verifyUseCase: locator<VerifyUseCase>(),
       ));
 }

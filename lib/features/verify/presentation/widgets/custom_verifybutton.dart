@@ -1,25 +1,23 @@
-import 'package:chdtask/config/router/app_routes.dart';
-import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/function/tosta.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/strings/app_strings.dart';
 import 'package:chdtask/core/utils/styles/app_textstyle.dart';
-import 'package:chdtask/features/signup/presentation/manager/singup_cubit.dart';
-import 'package:chdtask/features/signup/presentation/manager/singup_state.dart';
+import 'package:chdtask/features/verify/presentation/manager/verify_cubit.dart';
+import 'package:chdtask/features/verify/presentation/manager/verify_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomSignUpButton extends StatelessWidget {
-  const CustomSignUpButton({super.key});
+class VerifyButton extends StatelessWidget {
+  const VerifyButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<SingupCubit>();
+    var cubit = context.read<VerifyCubit>();
     return InkWell(
       onTap: () async {
         if (cubit.formKey.currentState!.validate()) {
-          await cubit.signUp();
+          await cubit.verify();
         }
       },
       child: Container(
@@ -30,14 +28,13 @@ class CustomSignUpButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(4.r),
           color: AppColor.primeryColor,
         ),
-        child: BlocConsumer<SingupCubit, SingupState>(
+        child: BlocConsumer<VerifyCubit, VerifyState>(
           listener: (context, state) {
             state.whenOrNull(
               success: (data) {
                 successToast(context,
-                    title: 'Success Signup with OTP',
-                    description: 'OTP: ${data.otp}');
-                context.pushNamed(AppRoutes.verify);
+                    title: 'Success Verify with OTP',
+                    description: 'OTP: ${data.message}');
               },
               failure: (error) {
                 errorToast(context, title: 'Error', description: error);
@@ -52,7 +49,7 @@ class CustomSignUpButton extends StatelessWidget {
                     ),
                   ),
                   orElse: () => Text(
-                    AppStrings.signup,
+                    AppStrings.verify,
                     style: AppTextStyle.font20SemiBoldWhite,
                   ),
                 ) ??
