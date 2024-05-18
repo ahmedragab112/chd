@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:chdtask/features/home/domain/entities/product_entity.dart';
 import 'package:chdtask/features/home/domain/usecases/home_usecase.dart';
@@ -16,8 +18,10 @@ class HomeCubit extends Cubit<HomeState> {
         productEntity = data;
         emit(const HomeState.success());
       },
-      error: (errorHandler) =>
-          emit(HomeState.failure(error: errorHandler.apiErrorModel.message!)),
+      error: (errorHandler) {
+        log(errorHandler.apiErrorModel.message!);
+        emit(HomeState.failure(error: errorHandler.apiErrorModel.message!));
+      },
     );
   }
 }
