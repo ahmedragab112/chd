@@ -1,5 +1,3 @@
-
-
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/styles/app_textstyle.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +19,7 @@ class TitleAndMenu extends StatelessWidget {
         ),
         Expanded(
             child: Text(
-          'CHD',
+          'The Insurance',
           style: AppTextStyle.font24ExtraBoldBlack
               .copyWith(color: AppColor.primeryColor),
           textAlign: TextAlign.center,

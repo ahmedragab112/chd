@@ -9,6 +9,7 @@ class HomeCubit extends Cubit<HomeState> {
   ProductEntity? productEntity;
   HomeUseCase homeUseCase;
   HomeCubit({required this.homeUseCase}) : super(const HomeState.initial());
+  int activeIndex = 0;
 
   Future<void> getProduct() async {
     emit(const HomeState.loading());
@@ -23,5 +24,10 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.failure(error: errorHandler.apiErrorModel.message!));
       },
     );
+  }
+  void changeSliderIndex(int index) {
+    emit(const HomeState.initial());
+    activeIndex = index;
+    emit(const HomeState.changeSliderIndex());
   }
 }

@@ -1,16 +1,22 @@
 import 'package:chdtask/core/extension/extension.dart';
+import 'package:chdtask/core/model/pic_model.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
 import 'package:chdtask/core/utils/spaceing/spaceing.dart';
 import 'package:chdtask/core/utils/styles/app_textstyle.dart';
-import 'package:chdtask/core/utils/widget/custom_network_image.dart';
+import 'package:chdtask/features/home/presentation/widgets/custom_page_indicator.dart';
+import 'package:chdtask/features/home/presentation/widgets/product_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails(
-      {super.key, required this.title, required this.description});
+  const ProductDetails({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.picModel,
+  });
   final String title;
   final String description;
+  final PicModel picModel;
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +53,11 @@ class ProductDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomNetWorkImage(
-                      imagePath:
-                          'https://th.bing.com/th/id/OIP.H0LLYgnpWZ0UjKRHpQ5ZFgHaHa?w=177&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                      width: double.infinity,
-                      height: 200.h),
+                  ProductSlider(
+                    picModel: picModel,
+                  ),
+                  const VerticalSpace(20),
+                  const SliderIndecator(),
                   const VerticalSpace(20),
                   Text(
                     title,

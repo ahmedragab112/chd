@@ -22,6 +22,7 @@ mixin _$HomeState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) failure,
+    required TResult Function() changeSliderIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$HomeState {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? failure,
+    TResult? Function()? changeSliderIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,31 +40,35 @@ mixin _$HomeState {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? failure,
+    TResult Function()? changeSliderIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(ChangeSliderIndex value) changeSliderIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(ChangeSliderIndex value)? changeSliderIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(ChangeSliderIndex value)? changeSliderIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,7 +109,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl implements Initial {
   const _$InitialImpl();
 
   @override
@@ -127,6 +133,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) failure,
+    required TResult Function() changeSliderIndex,
   }) {
     return initial();
   }
@@ -138,6 +145,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? failure,
+    TResult? Function()? changeSliderIndex,
   }) {
     return initial?.call();
   }
@@ -149,6 +157,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? failure,
+    TResult Function()? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -160,10 +169,11 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(ChangeSliderIndex value) changeSliderIndex,
   }) {
     return initial(this);
   }
@@ -171,10 +181,11 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(ChangeSliderIndex value)? changeSliderIndex,
   }) {
     return initial?.call(this);
   }
@@ -182,10 +193,11 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(ChangeSliderIndex value)? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,8 +207,8 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements HomeState {
-  const factory _Initial() = _$InitialImpl;
+abstract class Initial implements HomeState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -217,7 +229,7 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
+class _$LoadingImpl implements Loading {
   const _$LoadingImpl();
 
   @override
@@ -241,6 +253,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) failure,
+    required TResult Function() changeSliderIndex,
   }) {
     return loading();
   }
@@ -252,6 +265,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? failure,
+    TResult? Function()? changeSliderIndex,
   }) {
     return loading?.call();
   }
@@ -263,6 +277,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? failure,
+    TResult Function()? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -274,10 +289,11 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(ChangeSliderIndex value) changeSliderIndex,
   }) {
     return loading(this);
   }
@@ -285,10 +301,11 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(ChangeSliderIndex value)? changeSliderIndex,
   }) {
     return loading?.call(this);
   }
@@ -296,10 +313,11 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(ChangeSliderIndex value)? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -309,8 +327,8 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements HomeState {
-  const factory _Loading() = _$LoadingImpl;
+abstract class Loading implements HomeState {
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
@@ -331,7 +349,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements _Success {
+class _$SuccessImpl implements Success {
   const _$SuccessImpl();
 
   @override
@@ -355,6 +373,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) failure,
+    required TResult Function() changeSliderIndex,
   }) {
     return success();
   }
@@ -366,6 +385,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? failure,
+    TResult? Function()? changeSliderIndex,
   }) {
     return success?.call();
   }
@@ -377,6 +397,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? failure,
+    TResult Function()? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -388,10 +409,11 @@ class _$SuccessImpl implements _Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(ChangeSliderIndex value) changeSliderIndex,
   }) {
     return success(this);
   }
@@ -399,10 +421,11 @@ class _$SuccessImpl implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(ChangeSliderIndex value)? changeSliderIndex,
   }) {
     return success?.call(this);
   }
@@ -410,10 +433,11 @@ class _$SuccessImpl implements _Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(ChangeSliderIndex value)? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -423,8 +447,8 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements HomeState {
-  const factory _Success() = _$SuccessImpl;
+abstract class Success implements HomeState {
+  const factory Success() = _$SuccessImpl;
 }
 
 /// @nodoc
@@ -460,7 +484,7 @@ class __$$FailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FailureImpl implements _Failure {
+class _$FailureImpl implements Failure {
   const _$FailureImpl({required this.error});
 
   @override
@@ -495,6 +519,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) failure,
+    required TResult Function() changeSliderIndex,
   }) {
     return failure(error);
   }
@@ -506,6 +531,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? failure,
+    TResult? Function()? changeSliderIndex,
   }) {
     return failure?.call(error);
   }
@@ -517,6 +543,7 @@ class _$FailureImpl implements _Failure {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? failure,
+    TResult Function()? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -528,10 +555,11 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(ChangeSliderIndex value) changeSliderIndex,
   }) {
     return failure(this);
   }
@@ -539,10 +567,11 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(ChangeSliderIndex value)? changeSliderIndex,
   }) {
     return failure?.call(this);
   }
@@ -550,10 +579,11 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(ChangeSliderIndex value)? changeSliderIndex,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -563,11 +593,131 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements HomeState {
-  const factory _Failure({required final String error}) = _$FailureImpl;
+abstract class Failure implements HomeState {
+  const factory Failure({required final String error}) = _$FailureImpl;
 
   String get error;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeSliderIndexImplCopyWith<$Res> {
+  factory _$$ChangeSliderIndexImplCopyWith(_$ChangeSliderIndexImpl value,
+          $Res Function(_$ChangeSliderIndexImpl) then) =
+      __$$ChangeSliderIndexImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeSliderIndexImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$ChangeSliderIndexImpl>
+    implements _$$ChangeSliderIndexImplCopyWith<$Res> {
+  __$$ChangeSliderIndexImplCopyWithImpl(_$ChangeSliderIndexImpl _value,
+      $Res Function(_$ChangeSliderIndexImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeSliderIndexImpl implements ChangeSliderIndex {
+  const _$ChangeSliderIndexImpl();
+
+  @override
+  String toString() {
+    return 'HomeState.changeSliderIndex()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeSliderIndexImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String error) failure,
+    required TResult Function() changeSliderIndex,
+  }) {
+    return changeSliderIndex();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String error)? failure,
+    TResult? Function()? changeSliderIndex,
+  }) {
+    return changeSliderIndex?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String error)? failure,
+    TResult Function()? changeSliderIndex,
+    required TResult orElse(),
+  }) {
+    if (changeSliderIndex != null) {
+      return changeSliderIndex();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(ChangeSliderIndex value) changeSliderIndex,
+  }) {
+    return changeSliderIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(ChangeSliderIndex value)? changeSliderIndex,
+  }) {
+    return changeSliderIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(ChangeSliderIndex value)? changeSliderIndex,
+    required TResult orElse(),
+  }) {
+    if (changeSliderIndex != null) {
+      return changeSliderIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeSliderIndex implements HomeState {
+  const factory ChangeSliderIndex() = _$ChangeSliderIndexImpl;
 }
