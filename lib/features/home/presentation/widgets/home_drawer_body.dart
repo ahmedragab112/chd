@@ -1,4 +1,5 @@
 
+import 'package:animate_do/animate_do.dart';
 import 'package:chdtask/config/router/app_routes.dart';
 import 'package:chdtask/core/di/di.dart';
 import 'package:chdtask/core/extension/extension.dart';
@@ -39,21 +40,25 @@ class DrawerBody extends StatelessWidget {
             ],
           ),
         ),
-        ListTile(
-          leading: const Icon(Icons.account_circle),
-          title: const Text('Profile'),
-          onTap: () {
-            context.pushNamed(AppRoutes.profile);
-          },
+        BounceInRight(
+          child: ListTile(
+            leading: const Icon(Icons.account_circle),
+            title: const Text('Profile'),
+            onTap: () {
+              context.pushNamed(AppRoutes.profile);
+            },
+          ),
         ),
-        ListTile(
-          leading: const Icon(Icons.logout),
-          title: const Text('Logout'),
-          onTap: () async {
-            await locator<CacheHelper>().clear().then((value) {
-              context.pushNamedAndRemoveUntil(AppRoutes.signIn);
-            });
-          },
+        BounceInLeft(
+          child: ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
+            onTap: () async {
+              await locator<CacheHelper>().clear().then((value) {
+                context.pushNamedAndRemoveUntil(AppRoutes.signIn);
+              });
+            },
+          ),
         ),
       ],
     );

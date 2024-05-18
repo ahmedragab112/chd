@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/model/pic_model.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
@@ -55,10 +56,21 @@ class Home extends StatelessWidget {
                                     mainAxisSpacing: 20,
                                     childAspectRatio: 3 / 6,
                                     crossAxisSpacing: 20),
-                            itemBuilder: (context, index) => CustomProduct(
-                                  dataEntity: cubit.productEntity!.data![index],
-                                  picModel: picList[index],
-                                ),
+                            itemBuilder: (context, index) => index.isEven
+                                ? BounceInLeft(
+                                    child: CustomProduct(
+                                      dataEntity:
+                                          cubit.productEntity!.data![index],
+                                      picModel: picList[index],
+                                    ),
+                                  )
+                                : BounceInRight(
+                                    child: CustomProduct(
+                                      dataEntity:
+                                          cubit.productEntity!.data![index],
+                                      picModel: picList[index],
+                                    ),
+                                  ),
                             itemCount: cubit.productEntity!.data!.length);
                       },
                     ) ??

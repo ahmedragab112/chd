@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:chdtask/core/di/di.dart';
 import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/model/pic_model.dart';

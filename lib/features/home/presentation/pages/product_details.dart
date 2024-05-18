@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:chdtask/core/extension/extension.dart';
 import 'package:chdtask/core/model/pic_model.dart';
 import 'package:chdtask/core/utils/colors/app_color.dart';
@@ -25,25 +26,27 @@ class ProductDetails extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios_new,
-                      color: AppColor.primeryColor,
+              child: BounceInDown(
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: AppColor.primeryColor,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      'Details',
-                      style: AppTextStyle.font18SemiBoldPrimeryPink,
-                      textAlign: TextAlign.center,
+                    Expanded(
+                      child: Text(
+                        'Details',
+                        style: AppTextStyle.font18SemiBoldPrimeryPink,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             const SliverToBoxAdapter(
@@ -53,21 +56,27 @@ class ProductDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ProductSlider(
-                    picModel: picModel,
+                  BounceInUp(
+                    child: ProductSlider(
+                      picModel: picModel,
+                    ),
                   ),
                   const VerticalSpace(20),
-                  const SliderIndecator(),
+                  BounceInRight(child: const SliderIndecator()),
                   const VerticalSpace(20),
-                  Text(
-                    title,
-                    style: AppTextStyle.font18SemiBoldPrimeryPink,
-                    textAlign: TextAlign.start,
+                  BounceInLeft(
+                    child: Text(
+                      title,
+                      style: AppTextStyle.font18SemiBoldPrimeryPink,
+                      textAlign: TextAlign.start,
+                    ),
                   ),
                   const VerticalSpace(20),
-                  Text(
-                    description.replaceAll(RegExp(r'\n\s+'), '\n'),
-                    style: AppTextStyle.font14GreySemiBold,
+                  BounceInDown(
+                    child: Text(
+                      description.replaceAll(RegExp(r'\n\s+'), '\n'),
+                      style: AppTextStyle.font14GreySemiBold,
+                    ),
                   ),
                 ],
               ),
