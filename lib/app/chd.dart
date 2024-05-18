@@ -16,10 +16,8 @@ class Chd extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         title: AppStrings.chd,
-       
         debugShowCheckedModeBanner: false,
         theme: LightTheme.lightTheme,
-        themeMode: ThemeMode.system,
         onGenerateRoute: AppRouter.onGenrateRoute,
         initialRoute: AppRoutes.signIn,
         locale: const Locale('en'),

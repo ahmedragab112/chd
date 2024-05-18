@@ -49,7 +49,7 @@ class AppRouter {
             child: const Home(),
           ),
         );
-  case AppRoutes.profile:
+      case AppRoutes.profile:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => locator<ProfileCubit>()..getProfile(),
